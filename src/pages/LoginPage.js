@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -20,14 +21,17 @@ const LoginPage = () => {
     } else {
       if (rememberMe) {
         localStorage.setItem('user', JSON.stringify(data.user));
+      } else {
+        sessionStorage.setItem('user', JSON.stringify(data.user));
       }
-      history.push('/chat'); // Redirect to chat page (you'll need to implement this page)
+      navigate('/chat'); // Redirect to chat page (make sure you have /chat route/page!)
     }
   };
 
   return (
     <div className="login-container">
       <form onSubmit={handleLogin}>
+        <h2>Login</h2>
         <input
           type="email"
           value={email}
