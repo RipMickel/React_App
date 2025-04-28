@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "//github.com/RipMickel.https://github.com/RipMickel/React_App/static/css/main.e6c13ad2.css",
+    "main.js": "//github.com/RipMickel.https://github.com/RipMickel/React_App/static/js/main.b97bdd24.js",
+    "static/js/952.c5993383.chunk.js": "//github.com/RipMickel.https://github.com/RipMickel/React_App/static/js/952.c5993383.chunk.js",
+    "static/js/453.1f4fc30a.chunk.js": "//github.com/RipMickel.https://github.com/RipMickel/React_App/static/js/453.1f4fc30a.chunk.js",
+    "index.html": "//github.com/RipMickel.https://github.com/RipMickel/React_App/index.html",
+    "main.e6c13ad2.css.map": "//github.com/RipMickel.https://github.com/RipMickel/React_App/static/css/main.e6c13ad2.css.map",
+    "main.b97bdd24.js.map": "//github.com/RipMickel.https://github.com/RipMickel/React_App/static/js/main.b97bdd24.js.map",
+    "952.c5993383.chunk.js.map": "//github.com/RipMickel.https://github.com/RipMickel/React_App/static/js/952.c5993383.chunk.js.map",
+    "453.1f4fc30a.chunk.js.map": "//github.com/RipMickel.https://github.com/RipMickel/React_App/static/js/453.1f4fc30a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.b97bdd24.js"
+  ]
+}
