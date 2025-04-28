@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import bcrypt from 'bcryptjs';
 import { supabase } from '../supabaseClient';
 
 const RegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -14,18 +14,20 @@ const RegisterPage = () => {
 
     const { data, error } = await supabase
       .from('users')
-      .insert([{ email, password: hashedPassword }]);
+      .insert([{ email, password: hashedPassword, role: 'user', blocked: false }]);
 
     if (error) {
       alert(error.message);
     } else {
-      history.push('/login');
+      alert('Registration successful!');
+      navigate('/login');
     }
   };
 
   return (
     <div className="register-container">
       <form onSubmit={handleRegister}>
+        <h2>Register</h2>
         <input
           type="email"
           value={email}
