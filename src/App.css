@@ -65,4 +65,19 @@ button {
 button:hover {
   background-color: #45a049;
 }
+.home-container, .notfound-container {
+  text-align: center;
+  padding: 50px;
+}
+
+.home-container h1, .notfound-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.home-container p, .notfound-container p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
 
