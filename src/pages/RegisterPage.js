@@ -1,33 +1,30 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import bcrypt from 'bcryptjs';
 import { supabase } from '../supabaseClient';
 
 const RegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    const hashedPassword = bcrypt.hashSync(password, 10);
-
-    const { data, error } = await supabase
-      .from('users')
-      .insert([{ email, password: hashedPassword, role: 'user', blocked: false }]);
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+    });
 
     if (error) {
       alert(error.message);
     } else {
-      alert('Registration successful!');
-      navigate('/login');
+      alert('Registration successful! Please log in.');
+      navigate('/login');  // Use navigate instead of history.push
     }
   };
 
   return (
     <div className="register-container">
       <form onSubmit={handleRegister}>
-        <h2>Register</h2>
         <input
           type="email"
           value={email}

@@ -6,11 +6,10 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -20,18 +19,15 @@ const LoginPage = () => {
       alert(error.message);
     } else {
       if (rememberMe) {
-        localStorage.setItem('user', JSON.stringify(data.user));
-      } else {
-        sessionStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('user', JSON.stringify(data.user));  // Save user info in localStorage
       }
-      navigate('/chat'); // Redirect to chat page (make sure you have /chat route/page!)
+      navigate('/home');  // Use navigate instead of history.push
     }
   };
 
   return (
     <div className="login-container">
       <form onSubmit={handleLogin}>
-        <h2>Login</h2>
         <input
           type="email"
           value={email}
