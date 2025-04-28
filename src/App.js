@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import AdminPage from './pages/AdminPage';
-import HomePage from './pages/HomePage'; // 🆕 Create this for chat after login
-import NotFoundPage from './pages/NotFoundPage'; // 🆕 For unmatched routes
+import HomePage from './pages/HomePage';
+import NotFoundPage from './pages/NotFoundPage'; 
 
 function App() {
   return (
